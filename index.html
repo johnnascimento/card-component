@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML + Material Design Lite</title>
+  
+  <!-- HTML -->
+  
+  <!-- Material Design Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.min.js"></script>
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.indigo-pink.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 1</a>
+    </div>
+  </div>
+  <div class="card__wrapper">
+    <div class="card__block card__number">
+      <span>Card number</span>
+    </div>
+    <div class="card__block card__expireDate">
+      <span>Card expiry date</span>
+    </div>
+    <div class="card__block card__expireYear">
+      <span>Card expiry year</span>
+    </div>
+    <div class="card__block card__ownerName">
+      <span>Card owner's name</span>
+    </div>
+    
+    <div class="card__block card__cvc">
+      <span>Card Cvc number</span>
+    </div>
+  </div>
+  
+  <div class="card__inputs__wrapper">
+    <form action="#" method="get" accept-charset="utf-8">
+      <label for="card-number">Card number
+        <input type="number" name="card-number" id="js-cardNumber" value="Card number" placeholder="Card number" data-binding-link="card__number"/>
+      </label>
+      
+      <label for="card-expire-date">Card expire date
+        <input type="date" name="card-expire-date" id="js-expireDat" value="Card expire date" placeholder="Expire date" data-binding-link="card__expireDate"/>
+      </label>
+      
+      <label for="card-expire-year">Card expire year
+        <input type="date" name="card-expire-year" id="js-cardExpireYear" value="Card expire year" placeholder="Expire year" data-binding-link="card__expireYear" />
+      </label>
+      
+      <label for="card-owners-name">Card Owner's name
+        <input type="text" name="card-owners-name" id="js-cardOwnersName" value="Card Owner's name" placeholder="Owner's name" data-binding-link="card__ownerName" />
+      </label>
+      
+      <label for="card-cvc">Card CVC
+        <input type="number" name="card-cvc" id="js-cardCvc" value="Card CVC" placeholder="Card CVC" data-binding-link="card__cvc" />
+      </label>
+    </form>
+  </div>
+  <!-- Project -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
