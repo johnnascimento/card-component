@@ -4,6 +4,10 @@ body {
     min-height: 1500px;
 }
 
+body.ajaxLoading {
+  background-color: lightblue;
+}
+
 .header {
   display: block;
   position: relative;
