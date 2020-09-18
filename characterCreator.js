@@ -11,18 +11,18 @@ export class CharacterCreator {
   }
   
   showInfo() {
-    alert(`
+    /*alert(`
     Name: ${this.name}
     Age: ${this.age}
     Character class: ${this.characterClass}
-    `);
+    `);*/
   }
   
   showChanges(label, prevValue, currentValue) {
-    console.log(`
+    /*console.log(`
       Previous ${label}: ${prevValue}
       Current ${label}: ${currentValue}
-    `);
+    `);*/
   }
   
   setCharacterName(newName) {
