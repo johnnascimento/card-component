@@ -1,16 +1,10 @@
 import 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js';
 import { CharacterCreator as buildChar } from './characterCreator.js';
 import { CharStatus as Status } from './charStatus.js';
-import { MarvelApiFetcher as MarvelApi } from './marvelApiFetcher.js';
 
 
-let Ventus = {},
-MarvelApiClass = new MarvelApi();
-  
-  console.log('*******', $('#ajaxCaller'));
+let Ventus = {};
 
-// Marvel api field filling
-// document.querySelector('.js-marvelCards').innerHTML;
 
 Ventus.info = new buildChar('john', 16, 'lua');
 Ventus.status = new Status();
@@ -21,12 +15,6 @@ Ventus.info.showInfo();
 Ventus.info.setCharacterName('Lenon');
 Ventus.info.setCharacterAge(23);
 Ventus.info.setCharacterClass('Mage');
-
-document.body.querySelector('#ajaxCaller').addEventListener('click', function(ev) {
-  console.log('ajax caller', ev.target);
-  
-  MarvelApiClass.getApiValue();
-});
 
 document.body.querySelectorAll('input[type=text]').forEach(function(elem, idx) {
   //console.log('elem', elem);

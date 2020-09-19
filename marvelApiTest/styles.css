@@ -1,0 +1,11 @@
+body {
+  font-size: 15pt;
+
+  min-height: 1500px;
+  
+  background-color: lightseagreen;
+}
+
+body.ajaxLoading {
+  background-color: lightblue;
+}
