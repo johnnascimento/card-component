@@ -1,5 +1,5 @@
 body {
-  font-size: 15pt;
+  font-size: 16px;
 
   min-height: 1500px;
   
@@ -8,6 +8,25 @@ body {
 
 body.ajaxLoading {
   background-color: lightblue;
+}
+
+.js-marvelCardsBody {
+  width: 100vw;
+  display: block;
+  position: relative;
+  
+  font-size: 0;
+}
+
+.cardWrapper {
+  width: (100vw/2);
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 8px;
+  
+  background-color: #dfdfdf;
+  border-bottom: 1px dotted #9a9a9a;
 }
 
 .thumbnail {
@@ -28,16 +47,20 @@ body.ajaxLoading {
 .title {
   display: block;
   position: relative;
-  vertical-align: top;
   
   font-size: 18px;
   font-weight: bold;
 }
 
 .variantDescription {
-  display: inline-block;
+  font-size: 14px;
+  
+  display: block;
   position: relative;
-  vertical-align: top;
+  padding: 8px;
+  
+  border-top: 1px solid #9a9a9a;
+  border-bottom: 1px solid #9a9a9a;
 }
 
 #ajaxcaller {

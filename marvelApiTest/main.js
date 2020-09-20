@@ -35,28 +35,27 @@ $(document).ajaxComplete(function(ev) {
     console.log('elem: ', elem);
     console.log('idx: ', idx);
     
-    let markupDefined = '<br /><img class=\"thumbnail\" src=\"';
-    console.log('thumb', markupDefined);
+    let markupDefined = '<div class=\"cardWrapper\">';
+    
+    if (elem.title) {
+      markupDefined = markupDefined + '<p class=\"title\">' + elem.title + '</p>';
+    }
     
     if(elem.thumbnail) {
-      console.log('elem.thunb **********',  elem.thumbnail.path + '.' + elem.thumbnail.extension);
-      
-      markupDefined = markupDefined + elem.thumbnail.path + '.' + elem.thumbnail.extension + '\" />';
+      markupDefined = markupDefined + '<img class=\"thumbnail\" src=\"' + elem.thumbnail.path + '.' + elem.thumbnail.extension + '\" />';
     } else {
-      markupDefined = markupDefined + '\" />';
+      markupDefined = markupDefined + '<img src=\"\" />';
     }
     
     if(elem.description) {
       markupDefined = markupDefined + '<p class=\"description\">' + elem.description + '</p>';
     }
     
-    if(elem.title) {
-      markupDefined = markupDefined + '<p class=\"title\">' + elem.title + '</p';
-    }
-    
     if(elem.variantDescription) {
       markupDefined = markupDefined + '<p class=\"variantDescription\">' + elem.variantDescription + '</p>';
     }
+    
+    markupDefined = markupDefined + '</div>';
     
     $('.js-marvelCardsBody').html($('.js-marvelCardsBody').html() + markupDefined);
   });
