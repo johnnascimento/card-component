@@ -1,3 +1,7 @@
+::root {
+  --gutter: 16px;
+}
+
 body {
   font-size: 16px;
 
@@ -6,8 +10,42 @@ body {
   background-color: lightseagreen;
 }
 
-body.ajaxLoading {
-  background-color: lightblue;
+body.ajaxLoading:before {
+    content: ' ';
+    height: 30px;
+    width: 30px;
+    
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    
+    border-radius: 50%;
+    border: 15px solid white;
+    border-bottom-color: orange;
+    
+    z-index: 15;  
+}
+
+body.ajaxLoading:after {
+  content: ' ';
+  
+  width: 100%;
+  height: 100%;
+    
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+  background-color: lightcyan;
+  opacity: 0.8;
+  
+  z-index: 10;
 }
 
 .js-marvelCardsBody {
@@ -19,14 +57,16 @@ body.ajaxLoading {
 }
 
 .cardWrapper {
-  width: (100vw/2);
-  display: block;
+  width: auto;
+  display: grid;
   position: relative;
+  grid-template-columns: 1fr 2fr 3fr;
+  grid-template-rows: auto;
   margin: 0 auto;
-  padding: 8px;
+  padding: var(--gutter)/2#42445A;
   
   background-color: #dfdfdf;
-  border-bottom: 1px dotted #9a9a9a;
+  border-bottom: 1px dotted #9a9a#42445A9a;
 }
 
 .thumbnail {
@@ -41,7 +81,7 @@ body.ajaxLoading {
   display: inline-block;
   position: relative;
   vertical-align: top;
-  padding-left: 16px;
+  padding-left: var(--gutter);
 }
 
 .title {
@@ -57,25 +97,33 @@ body.ajaxLoading {
   
   display: block;
   position: relative;
-  padding: 8px;
+  padding: var(--gutter);
   
   border-top: 1px solid #9a9a9a;
   border-bottom: 1px solid #9a9a9a;
 }
 
 #ajaxcaller {
-  width: 100%;
+  width: calc(100% - var(--gutter));
   height: 60px;
   
   display: block;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   
   box-shadow: none;
   border: none;
   background-color: darkmagenta;
   color: white;
+  
+  transform: translate(-50%, -50%);
 }
 
 #ajaxCaller:hover {
   background-color: magenta;
+}
+
+#ajaxcaller.done {
+  display: none;
 }

@@ -16,18 +16,7 @@ $('body').on('click', '#ajaxCaller', function(ev) {
 })
 
 $(document).ajaxComplete(function(ev) {
-  
   console.log('Api return ', window.apiReturn.data);
-  
-  console.log('Api return ', window.apiReturn.data.limit);
-   
-  console.log('Api return ', window.apiReturn.data.count);
-  
-  console.log('Api return ', window.apiReturn.data.total);
-   
-  console.log('Api return ', window.apiReturn.data.offset);
-    
-  console.log('Api return ', window.apiReturn.data.results);
 
   if(!window.apiReturn) return;
   
@@ -59,4 +48,7 @@ $(document).ajaxComplete(function(ev) {
     
     $('.js-marvelCardsBody').html($('.js-marvelCardsBody').html() + markupDefined);
   });
+  
+  $('body').removeClass('ajaxLoading');
+  $('#ajaxCaller').addClass('done');
 });

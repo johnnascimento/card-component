@@ -15,16 +15,9 @@ export class MarvelApiFetcher {
       })
       .done(function(response) {
         console.log('Response', response);
-        console.log('Response Code', response.code);
-        console.log('Response data', response.data);
         
         this.responseApi = response;
-        
-        console.log('THIS.RESP', this.responseApi);
-       
        window.apiReturn = this.responseApi;
-       
-        $('body').removeClass('ajaxLoading');
         
         return this.responseApi;
       }.bind(this))
