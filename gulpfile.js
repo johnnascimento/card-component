@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 // Gulp webserver
 // ______________________________________
 gulp.task('server', function() {
-  gulp.src('./')    // <-- your app folder
+  gulp.src('./marvelApiTest')    // <-- your app folder
     .pipe(server({
       livereload: true,
       open: true,
@@ -85,7 +85,7 @@ gulp.task('styles', function() {
 // ______________________________________
 gulp.task('watch', async function() {
     gulp.watch('marvelApiTest/js/*.js', gulp.series('scripts'));
-    gulp.watch('marvelApiTest/scss/*.scss', gulp.series('styles'));
+    gulp.watch('marvelApiTest/scss/ *.scss', gulp.series('styles'));
 })
 
 gulp.task('default',

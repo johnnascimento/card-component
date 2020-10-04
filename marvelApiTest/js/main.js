@@ -1,11 +1,12 @@
 console.log('*******', $('#ajaxCaller'));
 
-$('body').on('click', '#ajaxCaller', function(ev) {
-    console.log('ajax caller', ev.target);
-    
+let apiUrl = 'https://gateway.marvel.com:443/v1/public/',
+    ajaxCallerPath = '';
+
+function grebMarvelApi(path) {
     $.ajax({
         method: 'GET',
-        url: 'https://gateway.marvel.com:443/v1/public/comics',
+        url: apiUrl + path,
         data: {            
             apikey: '402135c8a4195c9e9ee4a6340b3ec624',
         },
@@ -27,9 +28,29 @@ $('body').on('click', '#ajaxCaller', function(ev) {
         
         return;
     }.bind(this));
+}
+
+$('body').on('click', '#ajaxCaller', function(ev) {
+    ajaxCallerPath = $(ev.target).data('path');
+
+    console.log('ajax caller', ev.target);
+    console.log('ajax caller path', ajaxCallerPath);
+    
+    grebMarvelApi(ajaxCallerPath);
     
     console.log('*****', window.comics)
-})
+});
+
+$('body').on('click', '.checkItOutBtn', function(ev) {
+    ajaxCallerPath = $(ev.target).data('path');
+
+    console.log('ajax caller', ev.target);
+    console.log('ajax caller path', ajaxCallerPath);
+    
+    grebMarvelApi(ajaxCallerPath);
+    
+    console.log('*****', window.comics)
+});
 
 $(document).ajaxComplete(function(ev) {
     console.log('Api return ', window.comics.data);
@@ -60,7 +81,7 @@ $(document).ajaxComplete(function(ev) {
             markupDefined.append($('<p></p>').addClass('variantDescription').html(elem.variantDescription));
         }
         
-        markupDefined.append($('<button type=\'button\''))
+        markupDefined.append($('<button type=\'button\' class=\'checkItOutBtn\' value=\'Check it out\' data-path=\'comics/' + elem.id + '\'>Check it out</button>'))
         
         $('.js-marvelCardsWrapper').append(markupDefined);
     });
@@ -68,10 +89,3 @@ $(document).ajaxComplete(function(ev) {
     $('body').removeClass('ajaxLoading');
     $('#ajaxCaller').addClass('done');
 });
-
-/*
-$(document).ready(function(){
-    console.log('ready')
-    $('body').prepend($('<img />').attr('src', "https://upload.wikimedia.org/wikipedia/pt/5/59/Captain_Marvel_%282018%29.jpg"));
-});
-*/
