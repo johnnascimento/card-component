@@ -1,4 +1,4 @@
-export class MarvelApiFetcher {
+class MarvelApiFetcher {
   constructor(responseApi) {
     this.responseApi = responseApi;
   }
