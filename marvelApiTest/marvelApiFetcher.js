@@ -3,7 +3,7 @@ export class MarvelApiFetcher {
     this.responseApi = responseApi;
   }
   
-  apiDataAjax(entries = {}) {
+  apiComics(entries = {}) {
    this.entries = entries;
     
     $.ajax({
@@ -16,22 +16,20 @@ export class MarvelApiFetcher {
       .done(function(response) {
         console.log('Response', response);
         
-        this.responseApi = response;
-       window.apiReturn = this.responseApi;
+        window.comics = response;
         
         return this.responseApi;
       }.bind(this))
       .fail(function(error) {
-       this.responseApi = error;
-       console.log('error', this.responseApi);
+       console.log('error', error);
        
-       window.apiReturn = error;
+       window.comics = error;
     
         return this.responseApi;
       }.bind(this));
   }
   
-  getApiValue() {
-    return this.apiDataAjax();
+  getComics() {
+    return this.apiComics();
   }
 }
