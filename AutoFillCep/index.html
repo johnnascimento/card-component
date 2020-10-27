@@ -46,7 +46,6 @@
 
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
-
                 //Preenche os campos com "..." enquanto consulta webservice.
                 document.getElementById('rua').value="...";
                 document.getElementById('bairro').value="...";
@@ -57,7 +56,7 @@
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
 
-                //Sincroniza com o callback.
+                //Sincroniza com o callback
                 script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=fillInFields';
 
                 //Insere script no documento e carrega o conteúdo.
