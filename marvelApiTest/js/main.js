@@ -15,14 +15,14 @@ function grebMarvelApi(path) {
         }.bind(this)
     })
     .done(function(response) {
-        console.log('Response', response);
+        //console.log('Response', response);
         
         window.comics = response;
         
         return;
     }.bind(this))
     .fail(function(error) {
-        console.log('error', error);
+       // console.log('error', error);
         
         window.comics = error.responseJSON;
         
@@ -30,11 +30,11 @@ function grebMarvelApi(path) {
     }.bind(this));
 }
 
-$('body').on('click', '#ajaxCaller', function(ev) {
+$('body').on('click', '#ajaxCaller',   function(ev) {
     ajaxCallerPath = $(ev.target).data('path');
 
-    console.log('ajax caller', ev.target);
-    console.log('ajax caller path', ajaxCallerPath);
+    //console.log('ajax caller', ev.target);
+  //  console.log('ajax caller path', ajaxCallerPath);
     
     grebMarvelApi(ajaxCallerPath);
     
@@ -44,22 +44,22 @@ $('body').on('click', '#ajaxCaller', function(ev) {
 $('body').on('click', '.checkItOutBtn', function(ev) {
     ajaxCallerPath = $(ev.target).data('path');
 
-    console.log('ajax caller', ev.target);
-    console.log('ajax caller path', ajaxCallerPath);
+   // console.log('ajax caller', ev.target);
+  //  console.log('ajax caller path', ajaxCallerPath);
     
     grebMarvelApi(ajaxCallerPath);
     
-    console.log('*****', window.comics)
+  //  console.log('*****', window.comics)
 });
 
 $(document).ajaxComplete(function(ev) {
-    console.log('Api return ', window.comics.data);
+   console.log('Api return ', ev);
     
     if(!window.comics) return;
     
     $(window.comics.data.results).each(function(idx, elem) {
-        console.log('elem:   ', elem);
-        console.log('idx: ', idx);
+     //   console.log('elem:   ', elem);
+      //  console.log('idx: ', idx);
         
         let markupDefined = $('<div class=\'cardWrapper\'></div>');
         

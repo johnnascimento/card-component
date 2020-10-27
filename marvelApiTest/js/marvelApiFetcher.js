@@ -14,14 +14,14 @@ class MarvelApiFetcher {
         }.bind(this)
       })
       .done(function(response) {
-        console.log('Response', response);
+        //console.log('Response', response);
         
         window.comics = response;
         
         return this.responseApi;
       }.bind(this))
       .fail(function(error) {
-       console.log('error', error);
+      // console.log('error', error);
        
        window.comics = error;
     
