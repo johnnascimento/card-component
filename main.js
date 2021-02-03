@@ -5,7 +5,6 @@ import { CharStatus as Status } from './charStatus.js';
 
 let Ventus = {};
 
-
 Ventus.info = new buildChar('john', 16, 'lua');
 Ventus.status = new Status();
 
